@@ -3,6 +3,7 @@
   <FormularioNovoMedicamento @cadastrar="AdicionarMedicamento" />
   <div class="container">
     <CardMedicamento 
+      v-if="!!listaMedicamentos"
       v-for="medicamento in listaMedicamentos"
       :key="medicamento.id"
       @favoritar="FavoritarMedicamento" 
@@ -50,7 +51,12 @@ export default {
       this.listaMedicamentos.push(novoMedicamento)
     },
     FavoritarMedicamento(id) {
-      alert(id)
+      // editar o medicamento e marcar como favorito
+      this.listaMedicamentos = this.listaMedicamentos.map(item => {
+        if(item.id == id){
+          item.favorito = !item.favorito
+        }
+      })
     }
   }
 }
