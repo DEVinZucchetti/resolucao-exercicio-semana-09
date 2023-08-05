@@ -11,7 +11,7 @@
     <label for="preco">Preço:</label>
     <input type="number" id="preco" placeholder="Digite o preço" v-model="preco" />
 
-    <button @click="$emit('cadastrar')">Cadastrar</button>
+    <button @click="$emit('cadastrar', medicamento, laboratorio, preco)">Cadastrar</button>
 
   </div>
 </template>
