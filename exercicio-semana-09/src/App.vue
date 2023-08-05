@@ -3,11 +3,13 @@
   <FormularioNovoMedicamento @cadastrar="AdicionarMedicamento" />
   <div class="container">
     <CardMedicamento 
+      v-for="medicamento in listaMedicamentos"
+      :key="medicamento.id"
       @favoritar="FavoritarMedicamento" 
-      nome="Dipirona" 
-      laboratorio="Clamed" 
-      preco="5,00" 
-      id="1" 
+      :nome="medicamento.nome" 
+      :laboratorio="medicamento.laboratorio" 
+      :preco="medicamento.preco" 
+      :id="medicamento.id" 
     />
   </div>
 </template>
@@ -48,7 +50,6 @@ export default {
       this.listaMedicamentos.push(novoMedicamento)
     },
     FavoritarMedicamento(id) {
-      debugger
       alert(id)
     }
   }
@@ -58,6 +59,7 @@ export default {
 <style scoped>
 .container {
   display: flex;
+  flex-wrap: wrap;
   widows: 100vw;
   padding: 1em;
 }

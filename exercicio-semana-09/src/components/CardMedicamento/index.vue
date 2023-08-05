@@ -36,7 +36,7 @@ export default {
 .card {
   display: flex;
   flex-direction: column;
-  width: calc(100%/4);
+  width: calc(100%/4 - 2em);
   margin: 1em;
   background-color: #C4C4C4;
 }
